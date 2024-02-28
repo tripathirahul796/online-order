@@ -10,21 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.zxing.WriterException;
 import com.onlineorder.onlineorder.service.QRCode.QRCodeGenerator;
 
-
 @RestController
 public class QRCodeGeneratorController {
 
     @Autowired
     QRCodeGenerator qrCodeGenerator;
+
     @GetMapping("/generate/{tableNum}")
-    public String generateQRCodeForRange(@PathVariable int tableNum)
-    {
+    public String generateQRCodeForRange(@PathVariable int tableNum) {
         try {
-            qrCodeGenerator.generateQRCode("Table Number : "+tableNum,tableNum);
+            qrCodeGenerator.generateQRCode("Table Number : " + tableNum, tableNum);
         } catch (IOException | WriterException e) {
             e.printStackTrace();
         }
         return "Successfully generated!!";
     }
-    
+
 }

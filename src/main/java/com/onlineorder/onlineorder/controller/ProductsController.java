@@ -12,28 +12,26 @@ import com.onlineorder.onlineorder.entity.Product;
 import com.onlineorder.onlineorder.service.Product.ProductServiceImpl;
 
 @RestController
-@RequestMapping ("/products")
+@RequestMapping("/products")
 public class ProductsController {
 
     @Autowired
     ProductServiceImpl productsServiceImpl;
+
     @GetMapping("/")
-    public List<Product> getAllProducts()
-    {
+    public List<Product> getAllProducts() {
         return productsServiceImpl.getAllProducts();
 
     }
 
     @GetMapping("/{productId}")
-    public Product getProducts(@PathVariable int productId)
-    {
+    public Product getProducts(@PathVariable int productId) {
         return productsServiceImpl.getProduct(productId);
     }
 
     @GetMapping("/add")
-    public String addProducts(List<Product> products )
-    {
+    public String addProducts(List<Product> products) {
         return productsServiceImpl.addProducts(products);
     }
-    
+
 }
