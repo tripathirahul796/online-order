@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.onlineorder.onlineorder.entity.Order;
@@ -23,8 +24,14 @@ public class OrderController {
     }
 
     @GetMapping("/pendingOrders")
-    public List<Order> getPendingOrders() {
-        return ordersService.getPendingOrders();
+    public List<Order> getAllPendingOrders() {
+        return ordersService.getAllPendingOrders();
+    }
+
+    @GetMapping("/{orderId}")
+    public Order getOrder(@PathVariable int orderId)
+    {
+        return ordersService.getOrder(orderId);
     }
 
 }
