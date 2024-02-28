@@ -5,8 +5,7 @@ import java.util.List;
 import com.onlineorder.onlineorder.entity.Order;
 
 public interface OrdersService {
-    public List<Order> getPendingOrders();
-    public Order getPeningOrder();
+    public List<Order> getAllPendingOrders();
+    public Order getOrder(int orderId);
     public String addOrders();
-    public String updateOrders();  
 }

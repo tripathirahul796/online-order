@@ -16,14 +16,13 @@ public class OrdersServiceImpl implements OrdersService {
 
 
     @Override
-    public List<Order> getPendingOrders() {
+    public List<Order> getAllPendingOrders() {
       return orderRepo.findByStatus(1);
     }
 
     @Override
-    public Order getPeningOrder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPeningOrder'");
+    public Order getOrder(int orderId) {
+        return orderRepo.findById(orderId).get();
     }
 
     @Override
@@ -31,12 +30,5 @@ public class OrdersServiceImpl implements OrdersService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addOrders'");
     }
-
-    @Override
-    public String updateOrders() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateOrders'");
-    }
-
     
 }
