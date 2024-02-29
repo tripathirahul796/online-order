@@ -1,5 +1,5 @@
 FROM eclipse-temurin:21-jdk-alpine as build
-COPY ..
+COPY . .
 RUN mvn clean package -DskipTest
 
 FROM openjdk:21-jdk-slim
