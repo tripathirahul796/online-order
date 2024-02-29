@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.onlineorder.onlineorder.entity.Parameter;
 
-public interface ParameterRepo extends JpaRepository <Parameter,String> {
+public interface ParameterRepo extends JpaRepository <Parameter,Integer> {
     
 }
