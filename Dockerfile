@@ -1,7 +1,5 @@
-FROM eclipse-temurin:21-jdk-alpine as build
+FROM openjdk:21 as build
 COPY . .
 
-FROM openjdk:21-jdk-slim
-COPY --from=build /target/online-order-0.0.1.-SNAPSHOT.jar online-order.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","online-order.jar"]
