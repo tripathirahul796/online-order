@@ -6,4 +6,4 @@ FROM openjdk:17.0.1-jdk-slim
 COPY . .
 
 EXPOSE 8080
-ENTRYPOINT [ "java","-jar","online-order.jar" ]
+ENTRYPOINT [ "java","-jar","online-order-0.0.1-SNAPSHOT.jar" ]
