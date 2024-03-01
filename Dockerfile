@@ -1,5 +1,5 @@
 FROM openjdk:21 as build
-COPY . .
+WORKDIR /user/src/onlineorder
+COPY . /user/src/onlineorder/
 
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","online-order.jar"]
+CMD ["java","-jar","online-order.jar"]
