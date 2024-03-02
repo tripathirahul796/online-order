@@ -1,9 +1,16 @@
-FROM openjdk:18 AS build
+FROM ubuntu:latest AS build
+
+RUN apt-get update
+RUN apt-get install openjdk-18-jdk -y
 COPY . .
 
-FROM openjdk:18.0.1-jdk-slim
-COPY . .
-WORKDIR /target/
-#EXPOSE 8080
+RUN apt-get install maven -y
+RUN mvn clean install 
 
-ENTRYPOINT ["java", "-jar","onlineorderapp.jar" ]
+FROM openjdk:18-jdk-slim
+
+EXPOSE 8080
+
+COPY --from=build /target/onlineorderapp.jar app.jar
+
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
